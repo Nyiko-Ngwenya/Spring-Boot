@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/login/testing}" th:object="${user}" method="post">
+    <input type="text" th:field="*{userName}" class="form-control" placeholder="username">
+    <input type="password" th:field="*{password}" class="form-control" placeholder="password">
+    <input type="submit" value="Login" class="btn float-right login_btn">
+
+</form>
+
+</body>
+</html>
