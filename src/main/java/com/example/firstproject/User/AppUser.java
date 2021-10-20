@@ -6,7 +6,6 @@ import java.util.UUID;
 
 //
 @Entity
-@Gett
 public class AppUser {
     @Id
     private UUID id = UUID.randomUUID();
@@ -14,7 +13,7 @@ public class AppUser {
     private String password;
     private String email;
 
-    public AppUser( String userName, String password) {
+    public AppUser(String userName, String password) {
         this.userName = userName;
         this.password = password;
     }

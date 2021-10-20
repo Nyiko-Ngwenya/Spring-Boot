@@ -20,6 +20,7 @@ public class UserController {
         return "login";
     }
 
+
 //    @GetMapping("")
 //    public String greeting(Model model){
 //        model.addAttribute("user", new User());
@@ -38,6 +39,10 @@ public class UserController {
         return "createUser";
     }
 
+    @GetMapping("/toets")
+    public String toets(User user){
+        return "toets";
+    }
 //    @PostMapping("/loginAuth")
 //    public String displayDetails(@ModelAttribute User user, Model model){
 //        model.addAttribute("user",user);

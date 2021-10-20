@@ -18,7 +18,7 @@ public class PersonController {
         this.personService = personService;
     }
 
-//    //CREATE
+    //    //CREATE
     @PostMapping("")
     public void addPerson(@RequestBody Person person) {
         personService.addPerson(person);
@@ -26,19 +26,19 @@ public class PersonController {
 
     //RETREIVE
     @GetMapping("")
-    public List<Person> getPeople(){
+    public List<Person> getPeople() {
         return personService.getPeople();
     }
 
     @GetMapping("/{id}")
-    public Optional<Person> getSpecificPerson(@PathVariable(value = "id") UUID personId){
+    public Optional<Person> getSpecificPerson(@PathVariable(value = "id") UUID personId) {
         return personService.getSpecificPerson(personId);
     }
 
     //UPDATE
     @PutMapping("/{id}")
-    public void updatePerson(@PathVariable(value = "id") UUID personId,@RequestBody Person personDetails) {
-        personService.updatePerson(personId,personDetails);
+    public void updatePerson(@PathVariable(value = "id") UUID personId, @RequestBody Person personDetails) {
+        personService.updatePerson(personId, personDetails);
     }
 
 //    @PatchMapping()
@@ -46,7 +46,7 @@ public class PersonController {
 
     //DELETE
     @DeleteMapping("/{id}")
-    public void deletePerson(@PathVariable(value = "id") UUID personId){
+    public void deletePerson(@PathVariable(value = "id") UUID personId) {
         personService.delete_person(personId);
     }
 }
