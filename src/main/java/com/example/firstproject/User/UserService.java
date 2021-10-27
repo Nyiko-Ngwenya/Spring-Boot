@@ -16,14 +16,22 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public void addUser(AppUser user) {
-
+    public boolean addUser(AppUser user) {
         Optional<AppUser> appUser = userRepository.existsByUsername(user.getUserName());
         if(appUser.isPresent()){
-            throw new IllegalStateException("Username Taken");
+            return false;
         }
         String password =  Base64.getEncoder().encodeToString(user.getPassword().getBytes());
         user.setPassword(password);
         userRepository.save(user);
+        return true;
+    }
+
+    public boolean userExists(AppUser user){
+        Optional<AppUser> appUser = userRepository.existsByUsername(user.getUserName());
+        if(appUser.isPresent()){
+            return false;
+        }
+        return true;
     }
 }

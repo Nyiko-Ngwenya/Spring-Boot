@@ -2,10 +2,12 @@ package com.example.firstproject.User;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.UUID;
 
 //
 @Entity
+@Table
 public class AppUser {
     @Id
     private UUID id = UUID.randomUUID();

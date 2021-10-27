@@ -5,8 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+//javademospringbucket
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/account")
 public class UserController {
 
     private final UserService userService;
@@ -15,8 +16,9 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-    @GetMapping("/")
-    public String greeting(User user) {
+
+    @GetMapping("/login")
+    public String homePage(User user) {
         return "login";
     }
 
@@ -33,27 +35,33 @@ public class UserController {
 //        return "login";
 //    }
 
-    @GetMapping("/create")
-    public String createUser(User user){
-//        model.addAttribute("user", new User());
+    @GetMapping("/signup")
+    public String signUp(User user){
         return "createUser";
     }
 
-    @GetMapping("/toets")
-    public String toets(User user){
-        return "toets";
-    }
-//    @PostMapping("/loginAuth")
-//    public String displayDetails(@ModelAttribute User user, Model model){
-//        model.addAttribute("user",user);
-//        return "result";
+//    @GetMapping("/toets")
+//    public String toets(User user){
+//        return "toets";
 //    }
-
-    @PostMapping("/testing")
-    public String addPerson(@ModelAttribute User user) {
-        userService.addUser(new AppUser(user.getUserName(),user.getPassword()));
-//        model.addAttribute("user",user);
+    @PostMapping("/loginAuth")
+    public String displayDetails(@ModelAttribute User user, Model model){
+        model.addAttribute("user",user);
         return "result";
+    }
+
+    @PostMapping("/createAccount")
+    public String createAccount(@ModelAttribute User user) {
+//        boolean exists = userService.userExists(user);
+//        if(exists==true){
+//            return "login";
+//        }
+        boolean created = userService.addUser(new AppUser(user.getUserName(),user.getPassword()));
+        if(created == true){
+            return "login";
+        }
+//        model.addAttribute("user",user);
+        return "signUp";
     }
 
 
