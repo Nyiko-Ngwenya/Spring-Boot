@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/")
 public class controlla {
-    @GetMapping("/login")
+    @GetMapping("login")
     public String logz() {
         return "login";
     }
 
     @GetMapping("courses")
     public String logza() {
-        return "NWO";
+        return "courses";
     }
 }

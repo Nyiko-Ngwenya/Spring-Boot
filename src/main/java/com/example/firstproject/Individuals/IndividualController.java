@@ -10,7 +10,7 @@
 //public class IndividualController {
 //
 //    @GetMapping("/anything")
-//    public String signUp(User user){
+//    public String signUp(){
 //        return "login";
 //    }
 //

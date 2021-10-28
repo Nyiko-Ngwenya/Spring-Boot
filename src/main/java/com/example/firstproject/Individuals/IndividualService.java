@@ -1,6 +1,6 @@
 //package com.example.firstproject.Individuals;
 //
-//import com.example.firstproject.Person.Person;
+////import com.example.firstproject.Person.Person;
 //import lombok.AllArgsConstructor;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.core.userdetails.UserDetails;
