@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Create User Page</h1>
-<form action="#" th:action="@{/account/createAccount}" th:object="${user}" method="post">
+<form action="#" th:action="@{/account/createAccount}" method="post">
     <input type="text" th:field="*{userName}" class="form-control" placeholder="username">
     <input type="password" th:field="*{password}" class="form-control" placeholder="password">
     <input type="submit" value="Sign Up" class="btn float-right login_btn">

@@ -16,77 +16,21 @@ import java.util.UUID;
 
 @Getter
 @Setter
-//@EqualsAndHashCode
 @Entity
-public class Individual implements UserDetails {
+public class Individual {
 
     public Individual() {
     }
 
     @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id = UUID.randomUUID();
     private String userName;
     private String password;
-    private String email;
+    private boolean active;
+    private String roles;
 
-    @Enumerated(EnumType.STRING)
-    private IndividualRole individualRole;
-//    private final boolean isAccountNonExpired;
-    private final boolean isAccountNonLocked = false;
-//    private final boolean isCredentialsNonExpired;
-    private final boolean isEnabled = false;
-
-    public Individual(String userName, String password, String email) {
-        this.userName = userName;
-        this.password = password;
-        this.email = email;
-    }
-
-//    public UUID getId() {
-//        return id;
-//    }
-//
-//    public String getUserName() {
-//        return userName;
-//    }
-//
-//    public String getEmail() {
-//        return email;
-//    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(individualRole.name());
-        return Collections.singleton(authority);
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String getUsername() {
-        return userName;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return false;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return isEnabled;
+    public boolean isActive() {
+        return active;
     }
 }
