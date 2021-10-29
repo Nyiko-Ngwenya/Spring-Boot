@@ -27,8 +27,13 @@ public class Individual {
     private UUID id = UUID.randomUUID();
     private String userName;
     private String password;
-    private boolean active;
-    private String roles;
+    private boolean active= true;
+    private String roles="admin";
+
+    public Individual(String userName, String password) {
+    }
+
+
 
     public boolean isActive() {
         return active;

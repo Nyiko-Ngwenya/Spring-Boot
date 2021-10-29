@@ -19,7 +19,7 @@ public class IndividualAPIController {
     IndividualService individualService;
 
     @PostMapping("/create")
-    public void addIndividual(@RequestBody Individual person) {
+    public void addIndividual(@RequestBody Credentials person) {
         individualService.addPerson(person);
     }
 

@@ -2,6 +2,7 @@ package com.example.firstproject.Individuals;
 ////
 //////import com.example.firstproject.Person.Person;
 ////import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,6 +14,7 @@ import java.util.Optional;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
 //import sun.net.idn.Punycode;
 
 ////
@@ -26,7 +28,9 @@ public class IndividualService implements UserDetailsService {
 //
     @Autowired
     IndividualRepository individualRepository ;
-    PasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
@@ -35,9 +39,21 @@ public class IndividualService implements UserDetailsService {
         return individual.map(IndividualDetails::new).get();
     }
 
-    public void addPerson(Individual person) {
-        String encodedPassword = bCryptPasswordEncoder.encode(person.getPassword());
-        person.setPassword(encodedPassword);
-        individualRepository.save(person);
+    public void addPerson(Credentials person) {
+//        System.out.println("This ran");
+        Individual indie = new Individual();
+        indie.setPassword(passwordEncoder.encode(person.getPassword()));
+
+//        String a = passwordEncoder.encode("Wow");
+//        System.out.println(a);
+//        indie.setUserName(person.getUserName());
+//        System.out.println(indie.getUserName());
+//        String encodedPassword = bCryptPasswordEncoder.encode(person.getPassword());
+////        person.setPassword(encodedPassword);
+//
+        indie.setUserName(person.getUserName());
+//        System.out.println("We are here");
+////        System.out.println(indie.getPassword()+" "+indie.getUserName()+" "+indie.getRoles()+" "+indie.getId()+" "+indie.isActive());
+        individualRepository.save(indie);
     }
 }
