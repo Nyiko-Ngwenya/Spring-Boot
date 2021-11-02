@@ -34,10 +34,10 @@ public class IndividualService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        System.out.println("Does this run");
+//        System.out.println("Does this run");
         Optional<Individual> individual = individualRepository.findByUserName(s);
-        System.out.println(individual.get().toString());
-        System.out.println(individual.map(IndividualDetails::new).get());
+//        System.out.println(individual.get().toString());
+//        System.out.println(individual.map(IndividualDetails::new).get());
         individual.orElseThrow(() -> new UsernameNotFoundException("Not found: "+s));
         return individual.map(IndividualDetails::new).get();
     }
