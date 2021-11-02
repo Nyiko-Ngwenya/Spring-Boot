@@ -20,12 +20,13 @@ public class IndividualAPIController {
 
     @PostMapping("/create")
     public void addIndividual(@RequestBody Credentials person) {
+        System.out.println("Did I get called");
         individualService.addPerson(person);
     }
 
-    @GetMapping("/createIndividual")
-    public String createIndividual(){
-        return "createIndividual";
-    }
+//    @GetMapping("/createIndividual")
+//    public String createIndividual(){
+//        return "createIndividual.hmtl";
+//    }
 
 }

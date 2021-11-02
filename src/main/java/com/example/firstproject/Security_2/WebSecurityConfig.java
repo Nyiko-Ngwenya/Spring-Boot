@@ -17,19 +17,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.
         auth.userDetailsService(individualService);
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .authorizeRequests()
-                .anyRequest().permitAll();
-//        http.authorizeRequests()
-////                .antMatchers("/admin").hasRole("ADMIN")
-////                .antMatchers("/user").hasAnyRole("ADMIN", "USER")
-//                .antMatchers("/").permitAll()
-//                .and().formLogin();
+//        http
+//                .csrf().disable()
+//                .authorizeRequests()
+//                .anyRequest().permitAll();
+        http.authorizeRequests()
+                .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/user").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/").permitAll()
+                .and().formLogin();
     }
 
     @Bean
