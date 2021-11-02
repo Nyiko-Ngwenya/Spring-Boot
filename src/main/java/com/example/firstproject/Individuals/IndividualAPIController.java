@@ -20,7 +20,6 @@ public class IndividualAPIController {
 
     @PostMapping("/create")
     public void addIndividual(@RequestBody Credentials person) {
-        System.out.println("Did I get called");
         individualService.addPerson(person);
     }
 

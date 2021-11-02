@@ -27,7 +27,7 @@ public class IndividualController {
 //        return "accountCreated";
 //    }
 
-    @PostMapping("/createIndividuall")
+    @PostMapping("/createIndividual")
     public String createUser(@ModelAttribute Credentials user, Model model){
         System.out.println(user);
 //        System.out.println("Klad"+password+username);
