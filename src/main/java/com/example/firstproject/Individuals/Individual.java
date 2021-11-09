@@ -29,6 +29,7 @@ public class Individual {
     private String password;
     private boolean active= true;
     private String roles="admin";
+    private String email;
 
     public Individual(String userName, String password) {
     }

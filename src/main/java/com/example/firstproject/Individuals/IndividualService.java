@@ -34,7 +34,7 @@ public class IndividualService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-//        System.out.println("Does this run");
+        System.out.println("Does this run");
         Optional<Individual> individual = individualRepository.findByUserName(s);
 //        System.out.println(individual.get().toString());
 //        System.out.println(individual.map(IndividualDetails::new).get());
@@ -46,17 +46,11 @@ public class IndividualService implements UserDetailsService {
 //        System.out.println("This ran");
         Individual indie = new Individual();
         indie.setPassword(passwordEncoder.encode(person.getPassword()));
-
-//        String a = passwordEncoder.encode("Wow");
-//        System.out.println(a);
-//        indie.setUserName(person.getUserName());
-//        System.out.println(indie.getUserName());
-//        String encodedPassword = bCryptPasswordEncoder.encode(person.getPassword());
-////        person.setPassword(encodedPassword);
-//
         indie.setUserName(person.getUserName());
-//        System.out.println("We are here");
+//        System.out.println("We are here "+indie.getPassword());
+//        System.out.println(indie.getUserName());
 ////        System.out.println(indie.getPassword()+" "+indie.getUserName()+" "+indie.getRoles()+" "+indie.getId()+" "+indie.isActive());
         individualRepository.save(indie);
+//        System.out.println("Added");
     }
 }
